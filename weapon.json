@@ -1,0 +1,50 @@
+{
+	"long_sword" : {
+		"name" : "long sword",
+		"weapon_damage" : 4,
+		"weapon_range" : 3, 
+		"speed_attack" : 1
+	},
+	
+	"common_sword" : {
+		"name" : "common sword",
+		"weapon_damage" : 2,
+		"weapon_range" : 2, 
+		"speed_attack" : 1
+	},
+	
+	"spear" : {
+		"name" : "spear",
+		"weapon_damage" : 2,
+		"weapon_range" : 3, 
+		"speed_attack" : 1
+	},
+	
+	"axe" : {
+		"name" : "axe",
+		"weapon_damage" : 3,
+		"weapon_range" : 1, 
+		"speed_attack" : 1
+	},
+	
+	"long_axe" : {
+		"name" : "long_axe",
+		"weapon_damage" : 4,
+		"weapon_range" : 2, 
+		"speed_attack" : 1
+	},
+	
+	"bow" : {
+		"name" : "bow",
+		"weapon_damage" : 2,
+		"weapon_range" : 10,
+		"speed_attack" : 1
+	},
+	
+	"cross_bow" : {
+		"name" : "cross bow",
+		"weapon_damage" : 3,
+		"weapon_range" : 9,
+		"speed_attack" : 1
+	}
+}

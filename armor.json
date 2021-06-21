@@ -1,0 +1,16 @@
+{
+	"leather_armor" : {
+		"name" : "leather armor",
+		"defence" : 1
+	},
+	
+	"chain_armor" : {
+		"name" : "chain armor",
+		"defence" : 1
+	},
+	
+	"iron_armor" : {
+		"name" : "iron armor",
+		"defence" : 2
+	}
+}
