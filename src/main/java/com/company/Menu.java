@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Menu {
     public boolean GameStart() {
-        System.out.printf("Do you want to start? {Y / N}: ");
+        System.out.printf("Do you want to continue? {Y / N}: ");
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String str = scanner.nextLine();

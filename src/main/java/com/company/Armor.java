@@ -6,7 +6,7 @@ import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 
 public class Armor {
-    String name = "Common clothes";
+    String name = "common clothes";
     long defence = 0;
 
     public void SetArmor(String name) {

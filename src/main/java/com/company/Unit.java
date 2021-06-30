@@ -13,6 +13,7 @@ public class Unit extends Event implements UnitsActions {
     String race = "human";
     Weapons weapon = new Weapons();
     Armor armor = new Armor();
+    Inventory inventory = new Inventory();
     int health = 10;
     int lvl = 1;
     int exp = 0; //just for player
@@ -44,12 +45,13 @@ public class Unit extends Event implements UnitsActions {
     public void PrintINFO() {
         System.out.println();
         System.out.printf("[INFO] You are %s, your name is %s {health: %d, your level: %d, experience: %d}\n", this.race, this.name, this.health, this.lvl, this.exp);
+        inventory.PrintINFO();
         weapon.PrintINFO();
         armor.PrintINFO();
     }
 
     public void PrintEnemyINFO(Unit target) {
-        System.out.printf("[INFO] ID %d) You enemy is %s, it has %d health points, it's using %s, and it's using %s, range between you and him is %d\n", units.indexOf(target), this.race, this.health, this.weapon.name, this.armor.name, ranges.get(units.indexOf(target)));
+        System.out.printf("[INFO] ID %d) Your enemy is %s, it has %d health points, it's using %s, and it's using %s, range between you and him is %d\n", units.indexOf(target), this.race, this.health, this.weapon.name, this.armor.name, ranges.get(units.indexOf(target)));
     }
 
     public void EnemyDies(Unit unit) {
@@ -95,13 +97,53 @@ public class Unit extends Event implements UnitsActions {
         System.out.printf("[BATTLE] %s will stay on his position\n", race);
     }
 
-    public void Attack(Unit target) {
-        int id = ranges.indexOf(target);
-        if (ranges.get(units.indexOf(target)) <= this.weapon.attack_range) {
-            target.health -= weapon.damage + target.armor.defence;
-            System.out.printf("[BATTLE] %s has successfully attacked %s, and now it has %d hp.!\n",race , target.race, target.health);
+    public void Attack(Unit target, int id) {
+        Random random = new Random();
+        int failure = random.nextInt(5);
+
+
+        if (ranges.get(id) <= this.weapon.attack_range) {
+            if (failure != 1) {
+                target.health -= weapon.damage + target.armor.defence;
+                System.out.printf("[BATTLE] %s has successfully attacked %s, and now it has %d hp.!\n", race, target.race, target.health);
+            } else {
+                System.out.printf("[BATTLE] %s missed!\n", race);
+            }
         } else {
             System.out.println("[BATTLE] Range between you is too big for attack...\n");
         }
     }
+
+    public void UseItem() {
+        if (inventory.inventory.isEmpty()) {
+            System.out.println("[INFO] You don't have items in inventory");
+        } else {
+            int id = inventory.GetItemID();
+            if (inventory.inventory.get(id).regeneration > 0) {
+                this.health += inventory.inventory.get(id).regeneration;
+                this.inventory.DropItemID(id);
+            } else {
+                System.out.println("[INFO] You can't use that item, because you can't");
+            }
+        }
+    }
+
+    public void DropItem() {
+        if (inventory.inventory.isEmpty()) {
+            System.out.println("[INFO] You don't have items in inventory");
+        } else {
+            inventory.DropItem();
+        }
+    }
+
+    public void ReplaceItem(Item item) {
+        if (inventory.inventory.isEmpty()) {
+            System.out.println("[INFO] You don't have items in inventory");
+        } else {
+            inventory.Replace(item);
+        }
+    }
+
+
+
 }

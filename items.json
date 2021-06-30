@@ -1,0 +1,36 @@
+{
+  "apple" : {
+    "name" : "apple",
+    "description" : "nice and sweet apple",
+    "craftable" : false,
+    "regeneration" : 2
+  },
+
+  "corn" : {
+    "name" : "corn",
+    "description" : "just a corn",
+    "craftable" : false,
+    "regeneration" : 3
+  },
+
+  "beef" : {
+    "name" : "cooked beef",
+	"description" : "tasty cooked beef",
+	"craftable" : false,
+	"regeneration" : 4
+  },
+  
+  "stew" : {
+	"name" : "stew",
+	"description" : "beef stew has a loot of colories",
+	"craftable" : true, 
+	"regeneration" : 8
+  },
+  
+  "leather" : {
+	"name" : "leather",
+	"description" : "these leather you can use to craft an armor",
+	"craftable" : false,
+	"regeneration" : 0 
+  }
+}
